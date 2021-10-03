@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block ctt %}
+    <h1>Index[전체 영화 목록 조회]</h1>
+
+    {% for movie in movies %}
+    
+        <p>Title:<a href="{% url 'movies:detail' movie.pk %}"> {{movie.title}}</a></p>
+        {% comment %} <p>title: {{movie.title}}</p> {% endcomment %}
+        <p>overview: {{movie.overview}}</p>
+        {% comment %} <p>poster_path: {{movie.poster_path}}</p> {% endcomment %}
+        <img src="{{movie.poster_path}}" alt="..." style="width:100px;height:100px,">
+
+        <hr>
+    {% endfor %}
+
+{% endblock ctt %}

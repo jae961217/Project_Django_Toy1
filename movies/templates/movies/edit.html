@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block ctt %}
+<h1>EDIT[단일영화 정보를 수정 Form]</h1>
+{% comment %} views.py에서 edit 들어올 때 movie3으로 들어옴 {% endcomment %}
+<form action="{% url 'movies:update' movie333.pk %}" method="POST">
+{% csrf_token %}
+    <div>
+        <label for="ttl">title: </label>
+        <input type="text" id='ttl' name='ttl_for_server' value="{{movie333.title}}">
+    </div>
+
+    <div>
+        <label for="ovv">overview: </label>
+        <textarea name="ovv_for_server" id="ovv" cols="30" rows="10">{{movie333.overview}}</textarea>
+    </div>
+
+    <div>
+        <label for="pp">poster_path: </label>
+        <input type="text" name="pp_for_server" id="pp" value="{{movie333.poster_path}}">
+    </div>
+
+    <div>
+        {% comment %} <input type="submit"> {% endcomment %}
+        <button>수정</button>
+    </div>
+
+</form>
+
+{% endblock ctt %}

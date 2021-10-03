@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block ctt %}
+<h1>NEW[새로운 영화 작성 Form]</h1>
+<form action="{% url 'movies:create' %}" method="POST">
+{% csrf_token %}
+    <div>
+        <label for="ttl">title: </label>
+        <input type="text" id='ttl' name='ttl_for_server'>
+    </div>
+
+    <div>
+        <label for="ovv">overview: </label>
+        <textarea name="ovv_for_server" id="ovv" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+        <label for="pp">poster_path: </label>
+        <input type="text" name="pp_for_server" id="pp">
+    </div>
+
+    <div>
+        {% comment %} <input type="submit"> {% endcomment %}
+        <button>작성</button>
+    </div>
+
+</form>
+
+{% endblock ctt %}
+
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block ctt %}
+    
+    {% comment %} {{movie.title}} {% endcomment %}
+    {% comment %} {{movie.overview}} {% endcomment %}
+    
+    <p>title: {{movie1.title}}</p>
+    <p>overview: {{movie1.overview}}</p>   
+    <img src="{{movie1.poster_path}}" alt="..." style="width:100px;height:100px,">
+
+<p><a href="{% url 'movies:edit' movie1.pk %}"class="btn btn-primary"> EDIT</a></p>
+
+<form action="{% url 'movies:delete' movie1.pk %}" method="POST">
+{% csrf_token %}
+<button class="btn btn-danger">DELETE</button>
+</form> 
+
+{% endblock ctt %}
+
+
